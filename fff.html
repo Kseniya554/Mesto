@@ -1,0 +1,46 @@
+<!--Попап-->
+<section class="popup">
+    <div class="popup__container">
+        <button class=" popup__close"></button>
+        <div class="popup__content"></div>
+    </div>
+</section>
+
+let element = container.querySelector('.profile__popup');
+element.addEventListener('click', function () {
+    console.log('Мы кликнули по элементу');
+  }); 
+
+  
+
+
+
+
+
+formElement.addEventListener('submit', addname);
+
+
+//togglePopupVisibility();
+
+//const togglePopupVisibility = function() {
+    //  popupElement.classList.toggle('popup_is-opened');
+  //}
+
+
+  const closePopupByClickOnOverlay = function(event) {
+    console.log(event.target, event.currentTarget);
+    if(event.target !== event.currentTarget) {
+        return;
+    }
+    closePopup();
+}
+
+const closePopup = function() {
+    popupElement.classList.remove('popup_is-opened');
+}
+function addName(evt) {
+    evt.preventDefault()
+if (nameInput.value !== '') {
+    nameProfile.textContent = nameInput.value;
+} else {
+    closePopup();

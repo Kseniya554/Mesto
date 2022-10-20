@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css"> 
+    <link rel="stylesheet" href="./style.css"> 
+    <title>Место</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/Vector.png" alt="Mesto Russia">
+        <img class="header__line" src="./images/Line.png" alt="линия">
+    </header>
+
+    <main class="content">
+        <section class="profile">
+            <img class="profile__logo" src="./images/avatar.jpg" alt="Фото Жака Кусто">
+            <div class="profile__info">
+                <h1 class="profile__title">Жак-Ив Кусто
+                    <nav class="profile__navigation">
+                        <ul class="menu">
+                            <li class="menu__item">
+                                <button class="menu__open-popup" type="submit"><img src="./images/redact.svg" alt="редактор"></button>
+                            </li>
+                        </ul>
+                    </nav>                    
+                </h1>
+                <p class="profile__subtitle">Исследователь океана</p>                
+            </div>
+            <button class="profile__button">
+                <img class="profile__plus" src="./images/plus.svg" alt="кнопка">
+            </button>                       
+        </section>
+        <section class="elments">
+            <figure class="element">
+                <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаевск">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Карачаевск</h2>
+                    <button class="element__button"><img  class="element__like" src="./images/like.png" alt="Лайк"></button>
+                </div>
+            </figure>
+            <figure class="element">
+                <img class="element__image" src="./images/Elbrus.png" alt="Эльбрус">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__button"><img  class="element__like" src="./images/like.png" alt="Лайк"></button>
+                </div>
+            </figure>
+            <figure class="element">
+                <img class="element__image" src="./images/Dombai.png" alt="Домбай">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__button"><img  class="element__like" src="./images/like.png" alt="Лайк"></button>
+                </div>
+            </figure>
+            <figure class="element">
+                <img class="element__image" src="./images/Elbrus.png" alt="Эльбрус">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__button"><img  class="element__like" src="./images/like.png" alt="Лайк"></button>
+                </div>
+            </figure>
+            <figure class="element">
+                <img class="element__image" src="./images/Dombai.png" alt="Домбай">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__button"><img  class="element__like" src="./images/like.png" alt="Лайк"></button>
+                </div>
+            </figure>
+            <figure class="element">
+                <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаево-Черкессия">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Карачаево-Черкессия</h2>
+                    <button class="element__button"><img  class="element__like element__like_active" src="./images/like.png" alt="Лайк"></button>
+                </div>
+            </figure>
+        </section>
+
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <!--Попап-->
+    <section class="popup">        
+        <form class="popup__container">
+            <button class="popup__close-button" type="button" name="close-button"></button>          
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <input class="popup__name" type="text" name="name" placeholder="Жак-Ив Кусто" value="" required>
+            <input class="popup__info" type="text" name="info" placeholder="Исследователь океана" value="" required>
+            <button class="popup__submit-button" type="submit" name="submit-button" value="сохранить">Сохранить</button>            
+        </form>
+    </section>        
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
