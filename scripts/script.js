@@ -32,6 +32,9 @@ function addName(evt) {
     }
 }
 
+const closePopup = function() {
+    popupElement.classList.remove('popup_is-opened');
+}
 
 popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
