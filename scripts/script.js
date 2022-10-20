@@ -23,7 +23,9 @@ const closePopupByClickOnOverlay = function(event) {
     closePopup();
 }
 
-let nameInput.value !== ''; {
+function addName(evt) {
+    evt.preventDefault();
+    if (nameInput.value !== '') {
         nameProfile.textContent = nameInput.value;
     } else {
         closePopup();
