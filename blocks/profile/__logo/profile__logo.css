@@ -1,0 +1,12 @@
+.profile__logo {    
+    margin-right: 30px;
+    border-radius: 60px;
+    width: 120px;
+    height: 120px;
+}
+
+@media screen and (max-width: 450px) {
+    .profile__logo {
+        margin: 0;
+    }
+}

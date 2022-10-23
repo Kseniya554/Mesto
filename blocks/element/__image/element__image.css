@@ -1,0 +1,9 @@
+.element__image {
+    margin-bottom: 25px;
+    width: 282px;
+    height: 282px;
+}
+
+.element__image:hover {
+    opacity: 0.6;
+}
