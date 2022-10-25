@@ -6,17 +6,19 @@
     padding: 0;
     border: 1px solid white;
     background-color: black;
-    font-size: 40%;
     background-repeat: no-repeat;
-    background-size: cover;
-    background: none;
+    background-position: center;
     justify-content: baseline;
     align-self: center;
     align-items: center;
+    cursor: pointer;
+    background-image: url(../../../images/redact.svg);
+    background-size: 7px;
 }
 
 .profile__open-popup:hover {
     opacity: 0.6;
+    transition: opacity 1s linear 0.5s;
 }
 
 @media screen and (max-width: 450px) {
@@ -24,5 +26,6 @@
         margin-left: 10px;
         width: 18px;
         height: 18px;
+        background-size: 5.25;
     }
 }

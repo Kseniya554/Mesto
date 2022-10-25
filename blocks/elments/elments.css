@@ -13,6 +13,12 @@
     min-height: 744px;
 }
 
+@media screen and (max-width: 950px) {
+    .elments {
+        min-height: 1124px;
+    }
+}
+
 @media screen and (max-width: 650px) {
     .elments {
         min-height: 2268px;

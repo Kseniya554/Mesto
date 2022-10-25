@@ -9,65 +9,62 @@
 
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./images/Vector.png" alt="Логотип Место Россия">
-        <img class="header__line" src="./images/Line.png" alt="линия">
+        <img class="header__logotip" src="./images/Vector.png" alt="Логотип Место Россия">        
     </header>
 
     <main class="content">
         <section class="profile">
             <img class="profile__logo" src="./images/avatar.jpg" alt="Фото Жака Кусто">
             <div class="profile__info">
-                <nav class="profile__navigation">
+                <form class="profile__navigation">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <button class="profile__open-popup" type="button"><img src="./images/redact.svg" alt="редактор"></button>
-                </nav>
+                    <input type="button" class="profile__open-popup" value=" ">
+                </form>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <button class="profile__button">
-                <img class="profile__plus" src="./images/plus.svg" alt="кнопка">
-            </button>                       
+            <input type="button" class="profile__button" value=" ">                       
         </section>
         <section class="elments">
             <figure class="element">
                 <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаевск">
                 <div class="element__rectangel">
                     <h2 class="element__title">Карачаевск</h2>
-                    <button class="element__button"></button>
+                    <input type="button" class="element__button" value=" ">
                 </div>
             </figure>
             <figure class="element">
                 <img class="element__image" src="./images/Elbrus.png" alt="Эльбрус">
                 <div class="element__rectangel">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__button"></button>
+                    <input type="button" class="element__button" value=" ">
                 </div>
             </figure>
             <figure class="element">
                 <img class="element__image" src="./images/Dombai.png" alt="Домбай">
                 <div class="element__rectangel">
                     <h2 class="element__title">Домбай</h2>
-                    <button class="element__button"></button>
+                    <input type="button" class="element__button" value=" ">
                 </div>
             </figure>
             <figure class="element">
                 <img class="element__image" src="./images/Elbrus.png" alt="Эльбрус">
                 <div class="element__rectangel">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__button"></button>
+                    <input type="button" class="element__button" value=" ">
                 </div>
             </figure>
             <figure class="element">
                 <img class="element__image" src="./images/Dombai.png" alt="Домбай">
                 <div class="element__rectangel">
                     <h2 class="element__title">Домбай</h2>
-                    <button class="element__button"></button>
+                    <input type="button" class="element__button" value=" ">
                 </div>
             </figure>
             <figure class="element">
                 <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаево-Черкессия">
                 <div class="element__rectangel">
                     <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <button class="element__button"></button>
+                    <input type="button" class="element__button" value=" ">
                 </div>
             </figure>
         </section>
@@ -77,15 +74,17 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <!--Попап-->
-    <section class="popup">        
-        <form class="popup__container">
-            <button class="popup__close-button" type="button" name="close-button"></button>          
+    <div class="popup">
+        <div class="popup__form">
+            <button class="popup__close-button" type="button" name="close-button"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
-            <input class="popup__name" type="text" name="name" placeholder="Жак-Ив Кусто" value="" required>
-            <input class="popup__info" type="text" name="info" placeholder="Исследователь океана" value="" required>
-            <button class="popup__submit-button" type="submit" name="submit-button" value="сохранить">Сохранить</button>            
-        </form>
-    </section>        
+            <form class="popup__container">
+                <input class="popup__name" type="text" name="name" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" required>
+                <input class="popup__info" type="text" name="info" placeholder="Исследователь океана" value="Исследователь океана" required>
+                <button class="popup__submit-button" type="submit" name="submit-button" value="сохранить">Сохранить</button>
+            </form>
+        </div>
+    </div>        
     <script src="./scripts/script.js"></script>
 </body>
 </html>

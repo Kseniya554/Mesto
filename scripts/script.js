@@ -8,15 +8,12 @@ let infoInput = popupElement.querySelector('.popup__info');
 const profileElement = document.querySelector('.profile');
 let nameProfile = profileElement.querySelector('.profile__title');
 let infoProfile = profileElement.querySelector('.profile__subtitle');
-console.log(popupOpenButtonElement);
 
 const openPopup = function(event) {
-    // console.log(event.target, event.currentTarget);
     popupElement.classList.add('popup__is-opened');
 }
 
 const closePopupByClickOnOverlay = function(event) {
-    // console.log(event.target, event.currentTarget);
     if(event.target !== event.currentTarget) {
         return;
     }
@@ -27,16 +24,14 @@ function addName(event) {
     event.preventDefault();
     if (nameInput.value !== '') {
         nameProfile.textContent = nameInput.value;
-    } 
-    closePopup();
+    }
 }
 
 function addInfo(event) {
     event.preventDefault();
     if (infoInput.value !== '') {
         infoProfile.textContent = infoInput.value;
-    } 
-    closePopup();
+    }
 }
 
 const closePopup = function() {
@@ -46,10 +41,5 @@ const closePopup = function() {
 popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 popupElement.addEventListener('click', closePopupByClickOnOverlay);
-profileElement.addEventListener('click', function() {
-    console.log('Profile clicked');
-})
 popupSubmitButton.addEventListener('click', addName);
-formElement.addEventListener('submit', addName);
 popupSubmitButton.addEventListener('click', addInfo);
-formElement.addEventListener('submit', addInfo);
