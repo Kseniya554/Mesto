@@ -11,24 +11,14 @@ let infoProfile = profileElement.querySelector('.profile__subtitle');
 
 const openPopup = function(event) {
     popupElement.classList.add('popup__is-opened');
+    
 }
 
-const closePopupByClickOnOverlay = function(event) {
-    if(event.target !== event.currentTarget) {
-        return;
-    }
-    closePopup();
-}
-
-function addName(event) {
+function addProfile(event) {
     event.preventDefault();
     if (nameInput.value !== '') {
         nameProfile.textContent = nameInput.value;
     }
-}
-
-function addInfo(event) {
-    event.preventDefault();
     if (infoInput.value !== '') {
         infoProfile.textContent = infoInput.value;
     }
@@ -36,10 +26,10 @@ function addInfo(event) {
 
 const closePopup = function() {
     popupElement.classList.remove('popup__is-opened');
+    nameInput.value = nameProfile.textContent;
+    infoInput.value = infoProfile.textContent;
 }
 
 popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
-popupElement.addEventListener('click', closePopupByClickOnOverlay);
-popupSubmitButton.addEventListener('click', addName);
-popupSubmitButton.addEventListener('click', addInfo);
+popupSubmitButton.addEventListener('click', addProfile);

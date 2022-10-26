@@ -2,9 +2,10 @@
     margin-bottom: 25px;
     width: 282px;
     height: 282px;
+    display: block;
+    transition: opacity 1s linear 0.5s;
 }
 
 .element__image:hover {
-    opacity: 0.6;
-    transition: opacity 1s linear 0.5s;
+    opacity: 0.6;    
 }

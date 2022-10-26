@@ -11,11 +11,11 @@
     background-image: url(../../../images/plus.svg);
     background-size: 22px;
     background-position: center;
+    transition: opacity 1s linear 0.5s;
 }
 
 .profile__button:hover {
     opacity: 0.6;
-    transition: opacity 1s linear 0.5s;
 }
 
 @media screen and (max-width: 650px) {

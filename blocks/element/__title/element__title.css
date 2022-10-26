@@ -8,9 +8,9 @@
     white-space: nowrap;
     overflow: hidden;
     max-width: 210px;
+    transition: opacity 1s linear 0.5s;
 }
 
 .element__title:hover {
     opacity: 0.6;
-    transition: opacity 1s linear 0.5s;
 }
