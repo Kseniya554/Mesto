@@ -24,8 +24,9 @@
             </div>
             <button type="button" class="profile__button" value=" "></button>                      
         </section>
-        <section class="elments">
+        <section class="elments" id="cards">
             <figure class="element">
+                <button class="element__delete" type="button" value=" "></button>
                 <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаевск">
                 <div class="element__rectangel">
                     <h2 class="element__title">Карачаевск</h2>
@@ -33,6 +34,7 @@
                 </div>
             </figure>
             <figure class="element">
+                <button class="element__delete" type="button" value=" "></button>
                 <img class="element__image" src="./images/Elbrus.png" alt="Эльбрус">
                 <div class="element__rectangel">
                     <h2 class="element__title">Гора Эльбрус</h2>
@@ -40,6 +42,7 @@
                 </div>
             </figure>
             <figure class="element">
+                <button class="element__delete" type="button" value=" "></button>
                 <img class="element__image" src="./images/Dombai.png" alt="Домбай">
                 <div class="element__rectangel">
                     <h2 class="element__title">Домбай</h2>
@@ -47,6 +50,7 @@
                 </div>
             </figure>
             <figure class="element">
+                <button class="element__delete" type="button" value=" "></button>
                 <img class="element__image" src="./images/Elbrus.png" alt="Эльбрус">
                 <div class="element__rectangel">
                     <h2 class="element__title">Гора Эльбрус</h2>
@@ -54,6 +58,7 @@
                 </div>
             </figure>
             <figure class="element">
+                <button class="element__delete" type="button" value=" "></button>
                 <img class="element__image" src="./images/Dombai.png" alt="Домбай">
                 <div class="element__rectangel">
                     <h2 class="element__title">Домбай</h2>
@@ -61,6 +66,7 @@
                 </div>
             </figure>
             <figure class="element">
+                <button class="element__delete" type="button" value=" "></button>
                 <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаево-Черкессия">
                 <div class="element__rectangel">
                     <h2 class="element__title">Карачаево-Черкессия</h2>
@@ -68,13 +74,23 @@
                 </div>
             </figure>
         </section>
+        <template class="spot">
+            <figure class="element">
+                <button class="element__delete" type="button" value=""></button>
+                <img class="element__image" src="" alt="spot">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Spot Name</h2>
+                    <button type="button" class="element__button" value=" "></button>
+                </div>
+            </figure>
+        </template>
     </main>
     
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <!--Попап-->
-    <div class="popup">
+    <div id="popup" class="popup">
         <div class="popup__form">
             <button class="popup__close-button" type="button" name="close-button"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
@@ -84,7 +100,18 @@
                 <button class="popup__submit-button" type="submit" name="submit-button" value="сохранить">Сохранить</button>
             </form>
         </div>
-    </div>        
+    </div>
+    <div class="popup-plus">
+        <div class="popup-plus__form">
+            <button class="popup-plus__close-button" type="button" name="close-button"></button>
+            <h3 class="popup-plus__title">Новое место</h3>
+            <form class="popup-plus__container">
+                <input class="popup-plus__name" type="text" name="name" placeholder="Название" value="Название" required>
+                <input class="popup-plus__info" type="url" name="info" placeholder="Ссылка на каринку" value=" " required>
+                <button class="popup-plus__submit-button" type="submit" name="submit-button" value="сохранить">Создать</button>
+            </form>
+        </div>
+    </div>
     <script src="./scripts/script.js"></script>
 </body>
 </html>
