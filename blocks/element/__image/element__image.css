@@ -4,6 +4,7 @@
     height: 282px;
     display: block;
     transition: opacity 1s linear 0.5s;
+    cursor: pointer;
 }
 
 .element__image:hover {
