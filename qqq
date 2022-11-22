@@ -1,0 +1,193 @@
+const closePopup = function() {
+    popupElement.classList.remove('popup__is-opened');
+    nameInput.value = nameProfile.textContent;
+    infoInput.value = infoProfile.textContent;
+}
+
+popupOpenButtonElement.addEventListener('click', () => {
+    openPopup(popupOpenButtonElement);
+});
+popupCloseButtonElementPlus.addEventListener('click', closePopup);
+popupSubmitButtonPlus.addEventListener('click', () => {
+    openPopup(popupElementPlus);
+});
+
+
+
+
+function addProfile(event) {
+    event.preventDefault();
+    if (nameInput.value !== '') {
+        nameProfile.textContent = nameInput.value;
+    }
+    if (infoInput.value !== '') {
+        infoProfile.textContent = infoInput.value;
+    }
+}
+
+const closePopup = function() {
+    popupElement.classList.remove('popup__is-opened');
+    nameInput.value = nameProfile.textContent;
+    infoInput.value = infoProfile.textContent;
+}
+
+popupOpenButtonElement.addEventListener('click', openPopup);
+popupCloseButtonElement.addEventListener('click', closePopup);
+popupSubmitButton.addEventListener('click', addProfile);
+
+
+__________________________________________
+const container = document.querySelector('.elments');
+const toDoForm = document.querySelector('.profile__button')
+
+  const elementHtml = () => {
+      return `
+      <figure class="element">
+                <button class="element__delete" type="button" value=" "></button>
+                <img class="element__image" src="./images/Dombai.png" alt="Домбай">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Домбай</h2>
+                    <button type="button" class="element__button" value=" "></button>
+                </div>
+            </figure>
+`
+  }
+
+ 
+  initialCards.forEach(() => {
+    const imgString = elementHtml();
+
+    container.insertAdjacentHTML('afterbegin', imgString)
+  })
+
+  toDoForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const text = document.querySelector('.element__title').value;
+     
+  })
+  
+  рабочий код, но одинаковые карточки
+  ___________________________________________________________
+
+
+
+
+const container = document.querySelector('.elments');
+const toDoForm = document.querySelector('.profile__button');
+   const elementHtml = () => {
+      return `
+      <figure class="element">
+                <img class="element__image" src="./images/Dombai.png" alt="Домбай">
+                <div class="element__rectangel">
+                    <h2 class="element__title">Домбай</h2>
+                    <button type="button" class="element__button" value=" "></button>
+                </div>
+            </figure>
+`
+  }
+
+  const renderImg = (text) => {
+      
+  }
+
+  initialCards.forEach(() => {
+    const imgString = elementHtml();
+
+    container.insertAdjacentHTML('afterbegin', imgString)
+  })
+
+  toDoForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const text = document.querySelector('.element__title').value;
+     
+  })
+
+
+let nameInputEL = popupEl.querySelector('.popup-plus__name');
+let infoInputEl = popupEl.querySelector('.popup-plus__info');
+
+30.10
+
+const container = document.querySelector('.elments');
+const elmentsTemplate = document.querySelector('#cards').content;
+const item = elmentsTemplateTemplate.content.cloneNode(true);
+const placeName = initialCards.map(item => item.name);
+const placeLink = initialCards.map(item => item.link);
+
+const elementInfo = initialCards.map(function (item) {
+    return {
+      name: item.name,
+      link: item.link
+    };
+  });
+  
+  function render() {
+    elementInfo.forEach(renderCard);
+  }
+  
+  function renderCard({ name, link }) {
+    const elementEl = placeTemplate
+      .querySelector('.element')
+      .cloneNode(true);
+      elementEl.querySelector('.element__title').textContent = name;
+      elementEl.querySelector('.element__image').src = link;
+  
+    container.prepend(elementEl);
+  }
+  
+  render();
+_________________________________________________________
+   const elementHtml = (text) => {
+     const html = `
+     <figure class="element">
+               <button class="element__delete" type="button" value=" "></button>
+               <img class="element__image" src="./images/Dombai.png" alt="Домбай">
+               <div class="element__rectangel">
+                   <h2 class="element__title"></h2>
+                   <button type="button" class="element__button" value=" "></button>
+               </div>
+           </figure>
+`
+
+      const tempEl = document.createElement ('div');
+      tempEl.insertAdjacentHTML('afterbegin', html);
+      const el = tempEl.querySelector('.element');
+      const titleEl = el.querySelector('.element__title');
+      titleEl.textContent = text;
+      return el;
+  }
+
+
+  31.10
+
+  const container = document.querySelector('.elments');
+const toDoForm = document.querySelector('.profile__button');
+const cardTemplate = document.querySelector('.elments');
+const elementHtml = (text) => {
+  const el = cardTemplate.content.cloneNode(true).children[0];
+  const textEl = el.querySelector('.element__title');
+  textEl.textContent = text;
+  return el;
+}
+
+  const renderImg = (text) => {
+    const el = elementHtml(text);
+
+    container.append(el)
+      
+  }
+
+  initialCards.forEach((renderImg) => {
+    
+  })
+
+  toDoForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const text = document.querySelector('.element__title').value;
+
+      renderImg(text);
+     
+  })

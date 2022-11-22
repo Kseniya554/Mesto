@@ -9,9 +9,195 @@
     background-color:rgba(0, 0, 0, 0.5);
     overflow: auto;
     z-index: 3;
+<<<<<<< HEAD
     visibility: hidden;
     transition: visibility 1s linear, opacity 1s;
     opacity: 0;
     display: flex;
 }
 
+=======
+}
+
+.popup-plus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    z-index: 3;
+}
+
+.popup-plus__close-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(../../../images/Close.svg);
+    background-size: cover;
+    position: absolute;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    right: -40px;
+    top: -40px;
+    cursor: pointer;
+    transition: opacity 1s linear 0.5s;
+}
+
+.popup-plus__close-button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 550px) {
+    .popup-plus__close-button {
+        width: 16px;
+        height: 16px;
+        right: 0;
+        top: -32px;
+    }
+}
+
+.popup-plus__form {
+    top:195px;
+    width: 430px;
+    margin: 0 auto;
+    background-color: white;
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding-top: 34px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .popup-plus__form {
+        top: 21.5%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .popup-plus__form {
+        max-width: 282px;
+        padding-top: 25px;
+    }
+}
+
+.popup-plus__container {
+    margin: 0 auto;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.popup-plus__title {
+    width: 330px;
+    margin: 0 28px 0 0;
+    padding: 0;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29.05px;
+    color: #000000;
+    display: inline;
+}
+
+@media screen and (max-width: 550px) {
+    .popup-plus__title {
+        width: 238px;
+        font-size: 18px;
+        line-height: 21.78px;
+        margin-left: 22px;
+    }
+}
+
+.popup-plus__name {
+    width: 358px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid;
+    margin-top: 54px;
+    padding-bottom: 13.26px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 550px) {
+    .popup-plus__name {
+        width: 238px;
+        margin-top: 75px;
+        padding-bottom: 13px;
+        line-height: 16.94px;
+    }
+}
+
+.popup-plus__info {
+    width: 358px;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid;
+    margin-top: 29.74px;
+    padding-bottom: 13.34px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 550px) {
+    .popup-plus__info {
+        width: 238px;
+        margin-top: 30px;
+        padding-bottom: 13px;
+        line-height: 16.94px;
+    }
+}
+
+.popup-plus__submit-button {
+    background-color: black;
+    color: white;
+    width: 358px;
+    height: 50px;
+    margin-top: 48px;
+    margin-bottom: 36.51px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+    padding: 0;
+    transition: opacity 1s linear 0.5s;
+}
+
+.popup-plus__submit-button:hover {
+    opacity: 0.8;    
+}
+
+@media screen and (max-width: 550px) {
+    .popup-plus__submit-button {
+        width: 238px;
+        height: 46px;
+        margin-top: 45px;
+        margin-bottom: 25px;
+        font-size: 14px;
+        line-height: 16.94px;
+    }
+}
+>>>>>>> 0cc036683336f491ea4fc9fdb8130148e101f084
