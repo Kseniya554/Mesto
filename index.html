@@ -43,9 +43,9 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <!--Попап-->
-    <div id="popup" class="popup">
+    <div id="popup" class="popup popup-modal">
         <div class="popup__form">
-            <button class="popup__close-button" type="button" name="close-button"></button>
+            <button class="close-button" type="button" name="close-button"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
             <form class="popup__container">
                 <input class="popup__name" type="text" name="name" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" required>
@@ -54,9 +54,9 @@
             </form>
         </div>
     </div>
-    <div class="popup-plus">
+    <div class="popup-modal popup-plus">
         <div class="popup-plus__form">
-            <button class="popup-plus__close-button" type="button" name="close-button"></button>
+            <button class="close-button" type="button" name="close-button"></button>
             <h3 class="popup-plus__title">Новое место</h3>
             <form class="popup-plus__container">
                 <input class="popup-plus__name" type="text" name="name" placeholder="Название" value="Название" required>
@@ -65,15 +65,16 @@
             </form>
         </div>
     </div>
-    <div class="popup-image">
+    <div class="popup-modal popup-image">
         <div class="popup-image__opened">
-            <button class="popup-image__close-button" type="button" name="close-button"></button>
+            <button class="close-button" type="button" name="close-button"></button>
             <figure class="popup-image__container">
                 <img class="popup-image__big" src="#" alt="название">
                 <figcaption class="popup-image__text"></figcaption>
             </figure>
         </div>        
     </div>
+    <script src="./scripts/initialCards.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

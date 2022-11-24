@@ -1,32 +1,6 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
+const popup = document.querySelectorAll('.popup-modal');
 const popupElement = document.querySelector('.popup');
-const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
+const popupCloseButtonElement = document.querySelectorAll('.close-button');
 const popupOpenButtonElement = document.querySelector('.profile__open-popup');
 const popupSubmitButton = popupElement.querySelector('.popup__submit-button');
 const formElement = document.querySelector('.popup__container');
@@ -38,30 +12,19 @@ const infoProfile = profileElement.querySelector('.profile__subtitle');
 const unlock = true;
 
 const popupEl = document.querySelector('.popup-plus');
-const popupCloseButtonEl = popupEl.querySelector('.popup-plus__close-button');
 const popupOpenButtonEl = document.querySelector('.profile__button');
-const popupSubmitButtonEl = popupEl.querySelector('.popup-plus__submit-button');
+const popupSubmitButtonEl = document.querySelector('.popup-plus__submit-button');
 const formElementEl = document.querySelector('.popup-plus__container');
-const nameInputEl = popupEl.querySelector('.popup-plus__name');
-const infoInputEl = popupEl.querySelector('.popup-plus__info');
+const nameInputEl = document.querySelector('.popup-plus__name');
+const infoInputEl = document.querySelector('.popup-plus__info');
 
 const popupImage = document.querySelector('.popup-image');
-const popupCloseButtonImage = popupImage.querySelector('.popup-image__close-button');
 const imageElement = document.querySelector('.popup-image__container');
 const nameImage = document.querySelector('.popup-image__text');
 const imgImage = document.querySelector('.popup-image__big');
 
-
-const openPopup = function(event) {
-  popupElement.classList.add('popup__is-opened');      
-}
-
-const openPopupEl = function(event) {
-  popupEl.classList.add('popup__is-opened');      
-}
-
-const openPopupImage = function(event) {
-  popupImage.classList.add('popup__is-opened');        
+function open(popup) {
+  popup.classList.add('popup__is-opened');
 }
 
 function addProfile(event) {
@@ -72,6 +35,7 @@ function addProfile(event) {
     if (infoInput.value !== '') {
         infoProfile.textContent = infoInput.value;
     }
+    close(popupElement);
 }
 
 function addSpot(event) {
@@ -87,37 +51,30 @@ function addSpot(event) {
       spot.link = infoInputEl.value;
   };
   renderImg(spot);
-  closePopupEl();
+  close(popupEl);
 }
 
-const closePopup = function() {
-    popupElement.classList.remove('popup__is-opened');
-    nameInput.value = nameProfile.textContent;
-    infoInput.value = infoProfile.textContent;
+function close(popup) {
+  popup.classList.remove('popup__is-opened');
 }
 
-
-const closePopupEl = function() {
-    popupEl.classList.remove('popup__is-opened');
-    nameInputEl.value = '';
-    infoInputEl.value = '';
-}
-
-const closePopupImage = function() {
-  popupImage.classList.remove('popup__is-opened');  
-}
-
-popupOpenButtonElement.addEventListener('click', openPopup);
-popupCloseButtonElement.addEventListener('click', closePopup);
 popupSubmitButton.addEventListener('click', addProfile);
-popupOpenButtonEl.addEventListener('click', openPopupEl);
-popupCloseButtonEl.addEventListener('click', closePopupEl);
 popupSubmitButtonEl.addEventListener('click', addSpot);
-popupCloseButtonImage.addEventListener('click', closePopupImage);
+
+popupOpenButtonElement.addEventListener('click', function(){
+  open(popupElement);
+})
+popupOpenButtonEl.addEventListener('click', function(){
+  open(popupEl);
+})
+popupCloseButtonElement.forEach((button) => {
+  const popup = button.closest('.popup-modal');
+  button.addEventListener('click', () => close(popup));
+});
 
   function cloneElement(spot) {
-    const cardTemplate = document.querySelector('.spot');
-    const el = cardTemplate.content.cloneNode(true);
+    const cardTemplate = document.querySelector('.spot').content.querySelector('.element');;
+    const el = cardTemplate.cloneNode(true);
     const textEl = el.querySelector('.element__title');
     const imgEl = el.querySelector('.element__image');
     el.querySelector('.element__button').addEventListener('click', function (evt) {
@@ -134,14 +91,15 @@ popupCloseButtonImage.addEventListener('click', closePopupImage);
       nameImage.textContent = textEl.textContent;
       imgImage.src = imgEl.src;  
       imgImage.alt = textEl.textContent;
-      openPopupImage(popupImage);
+      open(popupImage);
     });
 
     return el;
 }
 
+const cards = document.querySelector('#cards');
+
 function renderImg(spot) {
-    const cards = document.querySelector('#cards')
     const el = cloneElement(spot);
     cards.prepend(el);
 }

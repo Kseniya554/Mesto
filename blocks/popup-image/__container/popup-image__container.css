@@ -1,7 +1,6 @@
 .popup-image__container {
     margin: 0 auto;
-    background-color:none;
-    color: white;
+    color: #ffffff;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
