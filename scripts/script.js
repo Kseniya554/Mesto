@@ -41,17 +41,18 @@ function addProfile(event) {
 function addSpot(event) {
   event.preventDefault();
   const spot = {
-      'name': '',
+      'place': '',
       'link': ''
   };
   if (nameInputEl.value !== '') {
-      spot.name = nameInputEl.value;
+      spot.place = nameInputEl.value;
   };
   if (infoInput.value !== '') {
       spot.link = infoInputEl.value;
   };
   renderImg(spot);
   close(popupEl);
+  formElementEl.reset();
 }
 
 function close(popup) {
