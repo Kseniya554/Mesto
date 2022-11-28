@@ -44,23 +44,29 @@
     </footer>
     <!--Попап-->
     <div id="popup" class="popup popup-modal">
-        <div class="popup__form">
+        <div class="popup__form"> 
             <button class="close-button" type="button" name="close-button"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
-            <form class="popup__container">
-                <input class="popup__name" type="text" name="name" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" required>
-                <input class="popup__info" type="text" name="info" placeholder="Исследователь океана" value="Исследователь океана" required>
+            <form class="popup__container" novalidate>
+                <fieldset class="popup__set">
+                    <input class="popup__name popup__input" type="text" name="name" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" required minlength="2" maxlength="40">
+                <span class="error error_name" id="name-input-error">Вы пропустили это поле.</span>
+                <input class="popup__info popup__input" type="text" name="info" placeholder="Исследователь океана" value="Исследователь океана" required minlength="2" maxlength="200">
+                <span class="error error_info" id="info-input-error">Вы пропустили это поле.</span>
                 <button class="popup__submit-button" type="submit" name="submit-button" value="сохранить">Сохранить</button>
+                </fieldset>
             </form>
         </div>
     </div>
     <div class="popup-modal popup-plus">
-        <div class="popup-plus__form">
+        <div class="popup-plus__form" novalidate>
             <button class="close-button" type="button" name="close-button"></button>
             <h3 class="popup-plus__title">Новое место</h3>
             <form class="popup-plus__container">
                 <input class="popup-plus__name" type="text" name="place" placeholder="Название" value="" required>
+                <span class="error error_place" id="place-input-error">Вы пропустили это поле.</span>
                 <input class="popup-plus__info" type="url" name="link" placeholder="Ссылка на каринку" value="" required>
+                <span class="error error_link" id="link-input-error">Вы пропустили это поле.</span>
                 <button class="popup-plus__submit-button" type="reset" name="submit-button" value="сохранить">Создать</button>
             </form>
         </div>
