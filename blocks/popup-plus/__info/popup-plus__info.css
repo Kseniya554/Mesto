@@ -2,7 +2,7 @@
     width: 358px;
     padding: 0;
     border: none;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid black;
     margin-top: 29.74px;
     padding-bottom: 13.34px;
     font-family: 'Inter', 'Arial', sans-serif;
@@ -12,10 +12,6 @@
     line-height: 17px;
 }
 
-.popup-plus__info:hover {
-    border-bottom:1px solid black;
-}
-
 @media screen and (max-width: 550px) {
     .popup-plus__info {
         width: 238px;
@@ -23,4 +19,8 @@
         padding-bottom: 13px;
         line-height: 16.94px;
     }
+}
+
+.popup-plus__info:invalid {
+    border-bottom-color: red;
 }

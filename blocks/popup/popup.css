@@ -14,15 +14,3 @@
     opacity: 0;
     display: flex;
 }
-
-.error {
-    font-family: 'Inter', 'Arial', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    color: #FF0000;
-    margin-top: 5px;
-    display: flex;
-    align-self: start;
-}

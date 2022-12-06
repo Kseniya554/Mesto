@@ -3,7 +3,7 @@
     margin: 0 auto;
     padding: 0;
     border: none;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid black;
     margin-top: 54px;
     padding-bottom: 13px;
     font-family: 'Inter', 'Arial', sans-serif;
@@ -13,13 +13,13 @@
     line-height: 17px;
 }
 
-.popup__name:hover {
-    border-bottom:1px solid black;
-}
-
 @media screen and (max-width: 550px) {
     .popup__name {
         width: 238px;
         margin-top: 75px;        
     }
+}
+
+.popup__name:invalid {
+    border-bottom-color: red;
 }

@@ -17,3 +17,5 @@ const checkInputValidity = () => {
     checkInputValidity();
   });
   
+  const errorMassege = {
+    'text':'Вы пропустили это поле'};
