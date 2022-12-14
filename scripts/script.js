@@ -3,8 +3,8 @@ const profilePopup = document.querySelector('.popup');
 const popupCloseButtonElements = document.querySelectorAll('.close-button');
 const popupOpenButtonElement = document.querySelector('.profile__open-popup');
 const popupSubmitButton = profilePopup.querySelector('.popup__submit-button');
-const nameInput = profilePopup.querySelector('.popup__name');
-const infoInput = profilePopup.querySelector('.popup__info');
+const nameInputProfile = profilePopup.querySelector('.popup__name');
+const infoInputProfile = profilePopup.querySelector('.popup__info');
 const profileElement = document.querySelector('.profile');
 const nameProfile = profileElement.querySelector('.profile__title');
 const infoProfile = profileElement.querySelector('.profile__subtitle');
@@ -14,8 +14,8 @@ const cardPopup = document.querySelector('.popup-plus');
 const popupOpenButtonEl = document.querySelector('.profile__button');
 const popupSubmitButtonEl = document.querySelector('.popup-plus__submit-button');
 //const cardForm = document.querySelector('.popup-plus__container');
-const nameInputEl = document.querySelector('.popup-plus__name');
-const infoInputEl = document.querySelector('.popup-plus__info');
+const nameInputCard = document.querySelector('.popup-plus__name');
+const infoInputCard = document.querySelector('.popup-plus__info');
 
 const profileForm = document.forms["profile-form"];
 const cardForm = document.forms["card-form"];
@@ -46,11 +46,11 @@ function closePopup(popup) {
 
 function addProfile(event) {
     event.preventDefault();
-    if (nameInput.value !== '') {
-        nameProfile.textContent = nameInput.value;
+    if (nameInputProfile.value !== '') {
+        nameProfile.textContent = nameInputProfile.value;
     }
-    if (infoInput.value !== '') {
-        infoProfile.textContent = infoInput.value;
+    if (infoInputProfile.value !== '') {
+        infoProfile.textContent = infoInputProfile.value;
     }
     closePopup(profilePopup);
 }
@@ -62,11 +62,11 @@ function addSpot(event) {
       'link': ''
     };
   
-  if (nameInputEl.value !== '') {
-      spot.name = nameInputEl.value;
+  if (nameInputCard.value !== '') {
+      spot.name = nameInputCard.value;
   };
-  if (infoInput.value !== '') {
-      spot.link = infoInputEl.value;
+  if (infoInputCard.value !== '') {
+      spot.link = infoInputCard.value;
   };
 //  if ((nameInputEl.length > 1) && (nameInputEl.length = > 40) )
   renderImg(spot);
