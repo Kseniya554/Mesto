@@ -65,7 +65,7 @@ function addSpot(event) {
     };
   
   if (nameInputEl.value !== '') {
-      spot.place = nameInputEl.value;
+      spot.name = nameInputEl.value;
   };
   if (infoInput.value !== '') {
       spot.link = infoInputEl.value;
@@ -88,43 +88,19 @@ popupOpenButtonEl.addEventListener('click', function(){
 popupCloseButtonElements.forEach((button) => {
   const popup = button.closest('.popup-modal');
   button.addEventListener('click', () => close(popup));
-  // document.addEventListener('keydown', function (event) {
-  //   const key = event.keyCode;
-  //   if (key == 27) {
-  //     document.querySelector('.popup-modal').classList.remove('popup__is-opened');
-  //     close(popup);
-  // }
-   });
-   
-  //  popups.forEach((popup) => {
-  //   popup.addEventListener('mousedown', (evt) => {
-  //       if (evt.target.classList.contains('popup__is-opened')) {
-  //           closePopup(popup)
-  //       }
-  //       if (evt.target.classList.contains('popup__close')) {
-  //         closePopup(popup)
-  //       }
-  //   })
-  // })
-
   const closePopupByClickOnOverlay = (evt) => {
-    if (evt.target === evt.currentTarget) {
-      closePopup(evt.currentTarget);
+    if (evt.target == evt.currentTarget) {
+      close(evt.currentTarget);
     }
   };
   popup.addEventListener('click', closePopupByClickOnOverlay);
+});
 
 
-function closeByEscape(evt) {
+ function closeByEscape(evt) {
   if (evt.key === 'Escape') {
-    function openPopup(popup) {
-      document.addEventListener('keydown', closeByEscape);
-    }
-    function closePopup(popup) {
-      document.removeEventListener('keydown', closeByEscape); 
-    }
     const openedPopup = document.querySelector('.popup__is-opened')
-     closePopup ()
+     close(openedPopup)
   }
 }
 
