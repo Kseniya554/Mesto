@@ -1,11 +1,10 @@
 const popups = document.querySelectorAll('.popup-modal');
-const popupElement = document.querySelector('.popup');
+const profilePopup = document.querySelector('.popup');
 const popupCloseButtonElements = document.querySelectorAll('.close-button');
 const popupOpenButtonElement = document.querySelector('.profile__open-popup');
-const popupSubmitButton = popupElement.querySelector('.popup__submit-button');
-const formElement = document.querySelector('.form');
-const nameInput = popupElement.querySelector('.popup__name');
-const infoInput = popupElement.querySelector('.popup__info');
+const popupSubmitButton = profilePopup.querySelector('.popup__submit-button');
+const nameInput = profilePopup.querySelector('.popup__name');
+const infoInput = profilePopup.querySelector('.popup__info');
 const profileElement = document.querySelector('.profile');
 const nameProfile = profileElement.querySelector('.profile__title');
 const infoProfile = profileElement.querySelector('.profile__subtitle');
@@ -28,23 +27,22 @@ const imgImage = document.querySelector('.popup-image__big');
 
 const formInput = document.querySelector('.form__input');
 const errorMessage = {'text':'Вы пропустили это поле'};
-const formError = formElement.querySelector(`.${formInput.id}-error`);
 
-function open(popup) {
+function openPopup(popup) {
   popup.classList.add('popup__is-opened');
   document.addEventListener('keydown', closeByEscape )
 }
 
-function close(popup) {
+function closePopup(popup) {
   popup.classList.remove('popup__is-opened');
   document.removeEventListener('keydown', closeByEscape )
 }
 
-document.addEventListener('click', function(event) {
-  if (event.target == event.currentTarget) {
-    close(document);
-    }
-});
+// popup.addEventListener('click', function(event) {
+//   if (event.target == event.currentTarget) {
+//     closePopup(popup);
+//     }
+// });
 
 function addProfile(event) {
     event.preventDefault();
@@ -54,7 +52,7 @@ function addProfile(event) {
     if (infoInput.value !== '') {
         infoProfile.textContent = infoInput.value;
     }
-    close(popupElement);
+    closePopup(profilePopup);
 }
 
 function addSpot(event) {
@@ -72,25 +70,25 @@ function addSpot(event) {
   };
 //  if ((nameInputEl.length > 1) && (nameInputEl.length = > 40) )
   renderImg(spot);
-  close(cardPopup);
+  closePopup(cardPopup);
   cardForm.reset();
 }
 
-popupElement.addEventListener('submit', addProfile);
+profilePopup.addEventListener('submit', addProfile);
 cardForm.addEventListener('submit', addSpot);
 
 popupOpenButtonElement.addEventListener('click', function(){
-  open(popupElement);
+  openPopup(profilePopup);
 })
 popupOpenButtonEl.addEventListener('click', function(){
-  open(cardPopup);
+  openPopup(cardPopup);
 })
 popupCloseButtonElements.forEach((button) => {
   const popup = button.closest('.popup-modal');
-  button.addEventListener('click', () => close(popup));
+  button.addEventListener('click', () => closePopup(popup));
   const closePopupByClickOnOverlay = (evt) => {
     if (evt.target == evt.currentTarget) {
-      close(evt.currentTarget);
+      closePopup(evt.currentTarget);
     }
   };
   popup.addEventListener('click', closePopupByClickOnOverlay);
@@ -100,7 +98,7 @@ popupCloseButtonElements.forEach((button) => {
  function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup__is-opened')
-     close(openedPopup)
+    closePopup(openedPopup)
   }
 }
 
@@ -124,7 +122,7 @@ popupCloseButtonElements.forEach((button) => {
       nameImage.textContent = textEl.textContent;
       imgImage.src = imgEl.src;  
       imgImage.alt = textEl.textContent;
-      open(popupImage);
+      openPopup(popupImage);
     });
 
     return el;
