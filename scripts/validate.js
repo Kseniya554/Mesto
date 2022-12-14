@@ -72,14 +72,6 @@ const enableValidation = (settings) => {
   }); 
 };
 
-// function setSubmitButtonState(isFormValid) {
-//   if (isFormValid) {
-//     buttonElement.removeAttribute('disabled');
-//   } else {
-//     buttonElement.setAttribute('disabled', true);
-//   }};
-
-
 const hasInvalidInput = (inputList) => {
   // проходим по этому массиву методом some
   return inputList.some((inputElement) => {
