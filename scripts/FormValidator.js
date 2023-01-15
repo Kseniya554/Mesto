@@ -25,14 +25,6 @@ export default class FormValidator {
     errorElement.classList.remove(this._ActiveError);
     errorElement.textContent = '';
   };
-
-  // _isValid = () => {
-  //   if (!inputElement.validity.valid) {
-  //     showInputError(inputElement, inputElement.validationMessage);
-  //   } else {
-  //     hideInputError(inputElement);
-  //   }
-  // };
   
   _checkInputValidity = (inputElement) => {
     if (!inputElement.validity.valid) {

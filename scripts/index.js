@@ -42,12 +42,14 @@ export const FORM_SETTINGS = {
 
 function openPopup(popup) {
   popup.classList.add('popup__is-opened');
-  document.addEventListener('keydown', closeByEscape )
+  document.addEventListener('keydown', (closeByEscape || closePopupByClickOnOverlay));
+  // document.addEventListener('keydown', closeByEscape )
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup__is-opened');
-  document.removeEventListener('keydown', closeByEscape )
+  document.removeEventListener('keydown', (closeByEscape || closePopupByClickOnOverlay));
+  // document.removeEventListener('keydown', closeByEscape )
 }
 
 // popup.addEventListener('click', function(event) {
@@ -96,18 +98,24 @@ popupOpenButtonEl.addEventListener('click', function(){
   openPopup(cardPopup);
 })
 
-function clickOverlay() {
-  if (evt.target == evt.currentTarget) {
-  closePopup(evt.currentTarget);
-}
-};
+// function clickOverlay() {
+//   if (evt.target == evt.currentTarget) {
+//   closePopup(evt.currentTarget);
+// }
+// };
 
-popupCloseButtonElements.forEach((button) => {closePopup
+popupCloseButtonElements.forEach((button) => {
   const popup = button.closest('.popup-modal');
-  button.addEventListener('click', () => (popup));
-  popup.addEventListener('click', clickOverlay);
+  button.addEventListener('click', () => closePopup(popup));
 });
 
+function closePopupByClickOnOverlay(evt) {
+  const openPopup = document.querySelector('.popup__is-opened');
+    if (evt.target == evt.currentTarget) {
+      closePopup(openPopup);
+    }
+  };
+  // .addEventListener('click', closePopupByClickOnOverlay);
 
 
  function closeByEscape(evt) {
@@ -143,7 +151,7 @@ popupCloseButtonElements.forEach((button) => {closePopup
 //     return el;
 // }
 
-function openImage(name, link) {
+function imgEl(name, link) {
   imgImage.textContent = name;
   imgImage.src = link;
   imgImage.alt = name;
@@ -153,14 +161,14 @@ function openImage(name, link) {
 export const cardsContainer = document.querySelector('#cards');
 
 function createImg(spot) {
-  const card = new Card(spot, '.spot', openPopup, openImage);
+  const card = new Card(spot, '.spot', openPopup, imgEl);
   const el = card.cloneElement(spot);
   return el;
 }
 
 function renderImg(spot) {
     const cardTemplate = createImg(spot);
-    cards.prepend(cardTemplate);
+    cardsContainer.prepend(cardTemplate);
 }
 
 

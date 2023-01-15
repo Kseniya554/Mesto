@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(spot, templateSelector, imgEl, openPopup,openImage ) {
+    constructor(spot, templateSelector, imgEl, openPopup) {
         this._name = spot._name;
         this._link = spot._link;
         this._templateSelector = templateSelector;
@@ -21,14 +21,17 @@ export default class Card {
         this._textEl.textContent  = this._name;
         this._imgEl.src = this._link;
         this._imgEl.alt = this._name;
+        this._addLike = document.querySelector('.element__button_active');
         this._setEventListeners();
         return this._cardTemplate;
     }
 
     _setEventListeners() {
-        this._likeButton.addEventListener('click', function (evt) {
-            evt.target.classList.toggle('element__button_active')
-          });
+        this._likeButton.addEventListener('click', () => {
+        this._addLike.addEventListener}); 
+        // this._likeButton.addEventListener('click', function (evt) {
+        //     evt.target.classList.toggle('element__button_active')
+        //   });
           this._deleteButton.addEventListener('click', function (evt) {
             this._cardTemplate.remove();
             this._cardTemplate = null;
