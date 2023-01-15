@@ -27,11 +27,9 @@ export default class Card {
     }
 
     _setEventListeners() {
-        this._likeButton.addEventListener('click', () => {
-        this._addLike.addEventListener}); 
-        // this._likeButton.addEventListener('click', function (evt) {
-        //     evt.target.classList.toggle('element__button_active')
-        //   });
+         this._likeButton.addEventListener('click', function (evt) {
+            evt.target.classList.toggle('element__button_active')
+          });
           this._deleteButton.addEventListener('click', function (evt) {
             this._cardTemplate.remove();
             this._cardTemplate = null;
