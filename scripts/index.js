@@ -1,32 +1,44 @@
-const popups = document.querySelectorAll('.popup-modal');
-const profilePopup = document.querySelector('.popup');
-const popupCloseButtonElements = document.querySelectorAll('.close-button');
-const popupOpenButtonElement = document.querySelector('.profile__open-popup');
-const popupSubmitButton = profilePopup.querySelector('.popup__submit-button');
-const nameInputProfile = profilePopup.querySelector('.popup__name');
-const infoInputProfile = profilePopup.querySelector('.popup__info');
-const profileElement = document.querySelector('.profile');
-const nameProfile = profileElement.querySelector('.profile__title');
-const infoProfile = profileElement.querySelector('.profile__subtitle');
-const unlock = true;
+import {initialCards} from './initialCards.js';
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
-const cardPopup = document.querySelector('.popup-plus');
-const popupOpenButtonEl = document.querySelector('.profile__button');
-const popupSubmitButtonEl = document.querySelector('.popup-plus__submit-button');
+export const popups = document.querySelectorAll('.popup-modal');
+export const profilePopup = document.querySelector('.popup');
+export const popupCloseButtonElements = document.querySelectorAll('.close-button');
+export const popupOpenButtonElement = document.querySelector('.profile__open-popup');
+export const popupSubmitButton = profilePopup.querySelector('.popup__submit-button');
+export const nameInputProfile = profilePopup.querySelector('.popup__name');
+export const infoInputProfile = profilePopup.querySelector('.popup__info');
+export const profileElement = document.querySelector('.profile');
+export const nameProfile = profileElement.querySelector('.profile__title');
+export const infoProfile = profileElement.querySelector('.profile__subtitle');
+export const unlock = true;
+
+export const cardPopup = document.querySelector('.popup-plus');
+export const popupOpenButtonEl = document.querySelector('.profile__button');
+export const popupSubmitButtonEl = document.querySelector('.popup-plus__submit-button');
 //const cardForm = document.querySelector('.popup-plus__container');
-const nameInputCard = document.querySelector('.popup-plus__name');
-const infoInputCard = document.querySelector('.popup-plus__info');
+export const nameInputCard = document.querySelector('.popup-plus__name');
+export const infoInputCard = document.querySelector('.popup-plus__info');
 
-const profileForm = document.forms["profile-form"];
-const cardForm = document.forms["card-form"];
+export const profileForm = document.forms["profile-form"];
+export const cardForm = document.forms["card-form"];
 
-const popupImage = document.querySelector('.popup-image');
-const imageElement = document.querySelector('.popup-image__container');
-const nameImage = document.querySelector('.popup-image__text');
-const imgImage = document.querySelector('.popup-image__big');
+export const popupImage = document.querySelector('.popup-image');
+export const imageElement = document.querySelector('.popup-image__container');
+export const nameImage = document.querySelector('.popup-image__text')
+export const imgImage = document.querySelector('.popup-image__big');
 
-const formInput = document.querySelector('.form__input');
-const errorMessage = {'text':'Вы пропустили это поле'};
+export const formInput = document.querySelector('.form__input');
+export const errorMessage = {'text':'Вы пропустили это поле'};
+export const FORM_SETTINGS = {
+  formElement: '.form__set',
+  input: '.form__input',
+  submitButton: '.form__submit',
+  inactiveButton: 'form__submit_inactive',
+  inputError: 'form__input-error',
+  ActiveError: 'form__input-error_active'
+};
 
 function openPopup(popup) {
   popup.classList.add('popup__is-opened');
@@ -128,11 +140,31 @@ popupCloseButtonElements.forEach((button) => {
     return el;
 }
 
-const cards = document.querySelector('#cards');
+// function openImage(name, link) {
+//   imgImage.textContent = name;
+//   imgImage.src = link;
+//   imgImage.alt = name;
+//   openPopup(popupImage);
+// }
+
+export const Cards = document.querySelector('#cards');
+
+// function renderImg(spot) {
+//   const el = new Card(spot, '.spot', openPopup, openImage);
+//   const cardTemplate = el.cloneElement(spot);
+//   return el;
+//   cards.prepend(cardTemplate);
+// }
 
 function renderImg(spot) {
-    const el = cloneElement(spot);
-    cards.prepend(el);
+    const cardTemplate = cloneElement(spot);
+    cards.prepend(cardTemplate);
 }
 
+
 initialCards.forEach(renderImg);
+
+const profileFormValidator = new FormValidator(FORM_SETTINGS, profileForm);
+profileFormValidator.enableValidation();
+const cardFormValidator = new FormValidator(FORM_SETTINGS, cardForm);
+cardFormValidator.enableValidation();
