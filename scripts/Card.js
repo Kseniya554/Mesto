@@ -1,3 +1,5 @@
+// import { popupImage } from ".";
+
 export default class Card {
     constructor(spot, templateSelector, imgEl, openPopup) {
         this._name = spot.name;
@@ -15,12 +17,12 @@ export default class Card {
     cloneElement() {
         this._cardTemplate = this._getTemplate();
         this._textEl = this._cardTemplate.querySelector('.element__title');
-        this._imgEl = this._cardTemplate.querySelector('.element__image');
+        this._imgElement = this._cardTemplate.querySelector('.element__image');
         this._likeButton = this._cardTemplate.querySelector('.element__button');
         this._deleteButton = this._cardTemplate.querySelector('.element__delete');
         this._textEl.textContent  = this._name;
-        this._imgEl.src = this._link;
-        this._imgEl.alt = this._name;
+        this._imgElement.src = this._link;
+        this._imgElement.alt = this._name;
         this._setEventListeners();
         return this._cardTemplate;
     }
@@ -41,16 +43,16 @@ export default class Card {
           this._deleteButton.addEventListener('click', function () {
             this._delete();           
           });
-          this._imgEl.addEventListener('click', function() {
-            this.openPopup(this._imgEl);
+          this._imgElement.addEventListener('click', () => {
+            this.openPopup(popupImage);
           });
     }
 
-    _addLike() {
+    _addLike = () => {
       evt.target.classList.toggle('.element__button_active');
     }
 
-    _delete() {
+    _delete = () => {
       this._cardTemplate.remove();
       this._cardTemplate = null;
     }
