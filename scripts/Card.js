@@ -1,10 +1,10 @@
 export default class Card {
     constructor(spot, templateSelector, imgEl, openPopup) {
-        this._name = spot._name;
-        this._link = spot._link;
+        this._name = spot.name;
+        this._link = spot.link;
         this._templateSelector = templateSelector;
-        this._imgEl = imgEl;
-        this.openPopup = openPopup;
+        this._imgEl = openPopup;
+        this.openPopup = imgEl;
     }
 
     _getTemplate() {
@@ -21,21 +21,39 @@ export default class Card {
         this._textEl.textContent  = this._name;
         this._imgEl.src = this._link;
         this._imgEl.alt = this._name;
-        this._addLike = document.querySelector('.element__button_active');
         this._setEventListeners();
         return this._cardTemplate;
     }
 
     _setEventListeners() {
+      // this._likeButton.addEventListener('click', function (evt) {
+      //   evt.target.classList.toggle('element__button_active')
+      // });
+      // this._deleteButton.addEventListener('click', function (evt) {
+      //   evt.target.closest('.element').remove()
+      // });
+      // this._imgEl.addEventListener('click', function(evt) {
+      //   evt.target.opened('this._imgEl');
+      // });
          this._likeButton.addEventListener('click', function (evt) {
-            evt.target.classList.toggle('element__button_active')
+            this._addLike();
           });
-          this._deleteButton.addEventListener('click', function (evt) {
-            this._cardTemplate.remove();
-            this._cardTemplate = null;
+          this._deleteButton.addEventListener('click', function () {
+            this._delete();           
           });
-          this._imgEl.addEventListener('click', function(evt) {
-            openPopup(popupImage);
+          this._imgEl.addEventListener('click', function() {
+            this.openPopup(this._imgEl);
           });
     }
+
+    _addLike() {
+      evt.target.classList.toggle('.element__button_active');
+    }
+
+    _delete() {
+      this._cardTemplate.remove();
+      this._cardTemplate = null;
+    }
+
 }
+
