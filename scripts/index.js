@@ -104,10 +104,10 @@ popupOpenButtonEl.addEventListener('click', function(){
 // }
 // };
 
-popupCloseButtonElements.forEach((button) => {
-  const popup = button.closest('.popup-modal');
-  button.addEventListener('click', () => closePopup(popup));
-});
+// popupCloseButtonElements.forEach((button) => {
+//   const popup = button.closest('.popup-modal');
+//   button.addEventListener('click', () => closePopup(popup));
+// });
 
 function closePopupByClickOnOverlay(evt) {
   const openPopup = document.querySelector('.popup__is-opened');
@@ -151,7 +151,7 @@ function closePopupByClickOnOverlay(evt) {
 //     return el;
 // }
 
-function imgEl(name, link) {
+function openImage(name, link) {
   imgImage.textContent = name;
   imgImage.src = link;
   imgImage.alt = name;
@@ -161,7 +161,7 @@ function imgEl(name, link) {
 export const cardsContainer = document.querySelector('#cards');
 
 function createImg(spot) {
-  const card = new Card(spot, '.spot', openPopup, imgEl);
+  const card = new Card(spot, '.spot', openImage);
   const el = card.cloneElement(spot);
   return el;
 }

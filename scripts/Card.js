@@ -1,12 +1,12 @@
 // import { popupImage } from ".";
 
 export default class Card {
-    constructor(spot, templateSelector, imgEl, openPopup) {
+    constructor(spot, templateSelector, handler) {
         this._name = spot.name;
         this._link = spot.link;
         this._templateSelector = templateSelector;
-        this._imgEl = openPopup;
-        this.openPopup = imgEl;
+        this._imgClickHandler = handler;        
+        // this.openPopup = imgEl;
     }
 
     _getTemplate() {
@@ -28,28 +28,19 @@ export default class Card {
     }
 
     _setEventListeners() {
-      // this._likeButton.addEventListener('click', function (evt) {
-      //   evt.target.classList.toggle('element__button_active')
-      // });
-      // this._deleteButton.addEventListener('click', function (evt) {
-      //   evt.target.closest('.element').remove()
-      // });
-      // this._imgEl.addEventListener('click', function(evt) {
-      //   evt.target.opened('this._imgEl');
-      // });
-         this._likeButton.addEventListener('click', function (evt) {
+         this._likeButton.addEventListener('click', () => {
             this._addLike();
           });
-          this._deleteButton.addEventListener('click', function () {
+          this._deleteButton.addEventListener('click', () => {
             this._delete();           
           });
           this._imgElement.addEventListener('click', () => {
-            this.openPopup(popupImage);
+            this._imgClickHandler(this._name, this._link);
           });
-    }
+    }  
 
-    _addLike = () => {
-      evt.target.classList.toggle('.element__button_active');
+    _addLike = (evt) => {
+      this._likeButton.classList.toggle('element__button_active');
     }
 
     _delete = () => {
