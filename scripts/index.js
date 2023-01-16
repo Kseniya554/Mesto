@@ -43,20 +43,13 @@ export const FORM_SETTINGS = {
 function openPopup(popup) {
   popup.classList.add('popup__is-opened');
   document.addEventListener('keydown', (closeByEscape || closePopupByClickOnOverlay));
-  // document.addEventListener('keydown', closeByEscape )
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup__is-opened');
   document.removeEventListener('keydown', (closeByEscape || closePopupByClickOnOverlay));
-  // document.removeEventListener('keydown', closeByEscape )
 }
 
-// popup.addEventListener('click', function(event) {
-//   if (event.target == event.currentTarget) {
-//     closePopup(popup);
-//     }
-// });
 
 function submitProfileForm(event) {
     event.preventDefault();
@@ -98,16 +91,6 @@ popupOpenButtonEl.addEventListener('click', function(){
   openPopup(cardPopup);
 })
 
-// function clickOverlay() {
-//   if (evt.target == evt.currentTarget) {
-//   closePopup(evt.currentTarget);
-// }
-// };
-
-// popupCloseButtonElements.forEach((button) => {
-//   const popup = button.closest('.popup-modal');
-//   button.addEventListener('click', () => closePopup(popup));
-// });
 
 function closePopupByClickOnOverlay(evt) {
   const openPopup = document.querySelector('.popup__is-opened');
