@@ -1,11 +1,11 @@
 // import { popupImage } from ".";
 
 export default class Card {
-    constructor(spot, templateSelector, handler) {
+    constructor(spot, templateSelector, handleCardClick) {
         this._name = spot.name;
         this._link = spot.link;
         this._templateSelector = templateSelector;
-        this._imgClickHandler = handler;        
+        this._handleCardClick = handleCardClick;        
         // this.openPopup = imgEl;
     }
 
@@ -35,7 +35,7 @@ export default class Card {
             this._delete();           
           });
           this._imgElement.addEventListener('click', () => {
-            this._imgClickHandler(this._name, this._link);
+            this._handleCardClick(this._name, this._link);
           });
     }  
 
