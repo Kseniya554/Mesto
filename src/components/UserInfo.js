@@ -11,8 +11,8 @@ export default class UserInfo {
         return this._submitProfileForm;
     }
 
-    setUserInfo() {
-        this._nameProfile.textContent = this._nameInputProfile.value;
-        this._infoProfile.textContent = this._infoInputProfile.value;
+    setUserInfo(data) {
+        this._nameProfile.textContent = data.name;
+        this._infoProfile.textContent = data.info;
     }
 }

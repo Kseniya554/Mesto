@@ -1,32 +1,14 @@
 import {
   initialCards,
-  // popups,
-  // profilePopup,
-  popupCloseButtonElements,
   popupOpenButtonElement,
-  // popupSubmitButton,
-  nameInputProfile,
-  infoInputProfile,
-  // profileElement,
-  nameProfile,
-  infoProfile,
-  // unlock,
-  // cardPopup,
+  profileName,
+  profileInfo,
   popupOpenButtonEl,
-  popupSubmitButtonEl,
-  nameInputCard,
-  infoInputCard,
-  cardsSection,
   profileForm,
   cardForm,
-  // popupImage,
-  // imageElement,
   nameImage,
   imgImage,
-  // formInput,
-  // errorMessage,
-  FORM_SETTINGS,
-  // profilePopup
+  FORM_SETTINGS
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js';
@@ -78,8 +60,8 @@ const cardFormValidator = new FormValidator(FORM_SETTINGS, cardForm);
 cardFormValidator.enableValidation();
 
 const userInfo = new UserInfo({
-        nameProfile: nameProfile,
-        infoProfile: infoProfile
+        nameProfile: profileName,
+        infoProfile: profileInfo
 })
 
 
@@ -104,9 +86,11 @@ cardPopup.setEventListeners();
 const profilePopup = new PopupWithForm({
   popupSelector: '.popup',
   handleFormSubmit: (formValues) => {
-    nameProfile.textContent = formValues['name-input'];
-    infoProfile.textContent = formValues['info-input'];
-    userInfo.setUserInfo(spot);
+    const data = {
+      name: formValues['name-input'],
+      info: formValues['info-input']
+    }
+    userInfo.setUserInfo(data);
     profilePopup.closePopup();
   }
 })

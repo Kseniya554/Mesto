@@ -33,8 +33,8 @@ export const popupSubmitButton = profilePopup.querySelector('.popup__submit-butt
 export const nameInputProfile = profilePopup.querySelector('.popup__name');
 export const infoInputProfile = profilePopup.querySelector('.popup__info');
 export const profileElement = document.querySelector('.profile');
-export const nameProfile = profileElement.querySelector('.profile__title');
-export const infoProfile = profileElement.querySelector('.profile__subtitle');
+export const profileName = profileElement.querySelector('.profile__title');
+export const profileInfo = profileElement.querySelector('.profile__subtitle');
 export const unlock = true;
 
 // export const cardPopup = document.querySelector('.popup-plus');
