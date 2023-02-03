@@ -1,27 +1,34 @@
+import arkhyz from '../images/arkhyz.jpg';
+import chelyabinsk from '../images/chelyabinsk-oblast.jpg';
+import ivanovo from '../images/ivanovo.jpg';
+import kamchatka from '../images/kamchatka.jpg';
+import kholmogorsky from '../images/kholmogorsky-rayon.jpg';
+import baikal from '../images/baikal.jpg'
+
 export const initialCards = [
     {
       name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      link: arkhyz
     },
     {
       name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      link: chelyabinsk
     },
     {
       name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+      link: ivanovo
     },
     {
       name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+      link: kamchatka
     },
     {
       name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+      link: kholmogorsky
     },
     {
       name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+      link: baikal
     }
   ];
 

@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css"> 
+     
     <title>Место</title>
 </head>
 
 <body class="page">
     <header class="header">
-        <img class="header__logotip" src="./images/Vector.png" alt="Логотип Место Россия">        
+        <img class="header__logotip" src="<%=require('./images/Vector.png')%>" alt="Логотип Место Россия">        
     </header>
 
     <main class="content">
         <section class="profile">
-            <img class="profile__logo" src="./images/avatar.jpg" alt="Фото Жака Кусто">
+            <img class="profile__logo" src="<%=require('./images/avatar.jpg')%>" alt="Фото Жака Кусто">
             <div class="profile__info">
                 <div class="profile__navigation">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -48,9 +48,9 @@
             <button class="close-button" type="button" name="close-button"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
             <form class="popup__container form__set" novalidate name="profile-form">
-                <input class="popup__name form__input" id="name-input" type="text" name="name-input" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" required minlength="2" maxlength="40">
+                <input class="popup__name form__input" id="name-input" type="text" name="name" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" required minlength="2" maxlength="40">
                 <span class="form__input-error error-name top" id="name-input-error"></span>
-                <input class="popup__info form__input" id="info-input" type="text" name="info-input" placeholder="Исследователь океана" value="Исследователь океана" required minlength="2" maxlength="200">
+                <input class="popup__info form__input" id="info-input" type="text" name="info" placeholder="Исследователь океана" value="Исследователь океана" required minlength="2" maxlength="200">
                 <span class="form__input-error error-info error" id="info-input-error"></span>
                 <button class="popup__submit-button form__submit" type="submit" name="submit-button" value="сохранить">Сохранить</button>
             </form>

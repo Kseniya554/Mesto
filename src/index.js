@@ -1,3 +1,5 @@
+import './pages/index.css';
+
 import {
   initialCards,
   popupOpenButtonElement,
@@ -9,15 +11,15 @@ import {
   nameImage,
   imgImage,
   FORM_SETTINGS
-} from '../utils/constants.js';
+} from './utils/constants.js';
 
-import Card from '../components/Card.js';
-import FormValidator from '../components/FormValidator.js';
-import Section from '../components/Section.js';
-import Popup from '../components/Popup.js';
-import PopupWithImage from '../components/PopupWithImage.js';
-import PopupWithForm from '../components/PopupWithForm.js';
-import UserInfo from '../components/UserInfo.js';
+import Card from './components/Card.js';
+import FormValidator from './components/FormValidator.js';
+import Section from './components/Section.js';
+import Popup from './components/Popup.js';
+import PopupWithImage from './components/PopupWithImage.js';
+import PopupWithForm from './components/PopupWithForm.js';
+import UserInfo from './components/UserInfo.js';
 
 popupOpenButtonElement.addEventListener('click', function(){
   profilePopup.openPopup();
@@ -87,8 +89,8 @@ const profilePopup = new PopupWithForm({
   popupSelector: '.popup',
   handleFormSubmit: (formValues) => {
     const data = {
-      name: formValues['name-input'],
-      info: formValues['info-input']
+      name: formValues["name"],
+      info: formValues["info"]
     }
     userInfo.setUserInfo(data);
     profilePopup.closePopup();
