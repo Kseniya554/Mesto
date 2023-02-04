@@ -71,7 +71,7 @@ const cardPopup = new PopupWithForm({
           name: formValues['place-input'],
           link: formValues['url-input']
         };
-    renderCard(spot);
+    sectionCard.addItem(renderCard(spot));
     cardPopup.closePopup();
     cardForm.reset();   
   }  

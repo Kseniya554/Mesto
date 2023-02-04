@@ -18,7 +18,3 @@
         line-height: 16.94px;
     }
 }
-
-.popup-plus__info:invalid {
-    border-bottom-color: red;
-}
