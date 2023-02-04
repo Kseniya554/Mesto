@@ -1,4 +1,4 @@
-import './pages/index.css';
+import './index.css';
 
 import {
   initialCards,
@@ -10,51 +10,40 @@ import {
   cardForm,
   nameImage,
   imgImage,
-  FORM_SETTINGS
-} from './utils/constants.js';
+  FORM_SETTINGS,
+  cardsSection
+} from '../utils/constants.js';
 
-import Card from './components/Card.js';
-import FormValidator from './components/FormValidator.js';
-import Section from './components/Section.js';
-import Popup from './components/Popup.js';
-import PopupWithImage from './components/PopupWithImage.js';
-import PopupWithForm from './components/PopupWithForm.js';
-import UserInfo from './components/UserInfo.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+import Popup from '../components/Popup.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 
 popupOpenButtonElement.addEventListener('click', function(){
   profilePopup.openPopup();
-  profilePopup.setInputValues(userInfo.getUserInfo());
+  return profilePopup.setInputValues(userInfo.getUserInfo());
+ 
 });
 popupOpenButtonEl.addEventListener('click', function(){
   cardPopup.openPopup();
 });
 
-export const cardsContainer = document.querySelector('#cards');
-
-function createCard(spot) {
-  const card = new Card(spot, '.spot', handleCardClick);
-  const cardTemplate = card.cloneElement(spot);
-  return cardTemplate;
-}
+const cardsContainer = document.querySelector('#cards');
 
 function handleCardClick(name, link) {
   popupWithImage.openPopup(name,link);
 }
 
-function renderCard(spot) {
-    const cardTemplate = createCard(spot);
-    cardsContainer.prepend(cardTemplate);
-}
-
-initialCards.forEach(renderCard);
-
-const section = new Section({items: initialCards, render: (item) => {
-  section.addItem(createCard(item))
+const sectionCard = new Section({items: initialCards, render: (item) => {
+  const template = new Card(item, '.spot', handleCardClick);
+  const card = template.cloneElement();
+  sectionCard.addItem(card)
 }},
 cardsContainer);
-section.renderItems();
-
-// const formValidators = {};
+sectionCard.renderItems();
 
 const profileFormValidator = new FormValidator(FORM_SETTINGS, profileForm);
 profileFormValidator.enableValidation();
@@ -66,7 +55,11 @@ const userInfo = new UserInfo({
         infoProfile: profileInfo
 })
 
-
+function renderCard(item) {
+  const template = new Card(item,'.spot', handleCardClick);
+  const card = template.cloneElement();
+  return card;
+};
 
 const popupWithImage = new PopupWithImage('.popup-image', imgImage, nameImage);
 popupWithImage.setEventListeners();
@@ -80,7 +73,7 @@ const cardPopup = new PopupWithForm({
         };
     renderCard(spot);
     cardPopup.closePopup();
-    cardForm.reset(); 
+    cardForm.reset();   
   }  
 })
 cardPopup.setEventListeners();

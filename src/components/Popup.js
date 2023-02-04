@@ -32,17 +32,7 @@ export default class Popup {
         document.removeEventListener('click', this._closePopupByButton);
     }
 
-    setEventListeners(evt) {
-      this._popup.addEventListener('mosedown', (evt)  => {
-        if (evt.target == evt.currentTarget) {
-          this.closePopup();
-        }
-      });
-      this._popup.addEventListener('keydown', (evt) => {
-        if (evt.target == evt.currentTarget) {
-          this.closePopup();
-        }
-      });
+    setEventListeners(evt) {     
       this._popup.addEventListener('click', (evt) => {
         if (evt.target.classList.contains('close-button')) {
           this.closePopup();

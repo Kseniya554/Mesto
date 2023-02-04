@@ -31,7 +31,7 @@ export default class PopupWithForm extends Popup {
         // передадим ей объект — результат работы _getInputValues
         this._handleFormSubmit(this._getInputValues());
 
-        this._formElement.reset();
+        // this._formElement.reset();
         });
     } 
 
@@ -41,8 +41,8 @@ export default class PopupWithForm extends Popup {
         })
     }
 
-    // closePopup() {
-    //     super.closePopup();
-    //     this._formElement.reset();
-    // }
+    closePopup() {
+        super.closePopup();
+        this._formElement.reset();
+    }
 }
