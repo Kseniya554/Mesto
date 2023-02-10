@@ -1,13 +1,15 @@
 export default class UserInfo {
-    constructor({nameProfile, infoProfile}) {
+    constructor({nameProfile, infoProfile, avatarProfile}) {
         this._nameProfile = nameProfile;
         this._infoProfile = infoProfile;
+        this._avatarProfile = avatarProfile;
     }
 
     getUserInfo() {
         this._submitProfileForm = {};
         this._submitProfileForm.name = this._nameProfile.textContent;
         this._submitProfileForm.info = this._infoProfile.textContent;
+        this._submitProfileForm.avatar = this._avatarProfile.src;
         return this._submitProfileForm;
     }
 
@@ -15,4 +17,12 @@ export default class UserInfo {
         this._nameProfile.textContent = data.name;
         this._infoProfile.textContent = data.info;
     }
+
+    setUserAvatar(avatar) {
+        this._avatarProfile.src = avatar;
+      }
+
+    getUserId() {
+        return this._userId = this._userData._id;
+      }
 }

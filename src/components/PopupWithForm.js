@@ -5,6 +5,7 @@ export default class PopupWithForm extends Popup {
         super(popupSelector);
         this._handleFormSubmit = handleFormSubmit;
         this._formElement = this._popup.querySelector('.form__set');
+        this._submitButton = this._popup.querySelector('.form__submit');
         // достаём все элементы полей
         this._inputList = this._popup.querySelectorAll('.form__input');
     }
@@ -40,6 +41,10 @@ export default class PopupWithForm extends Popup {
             input.value = data[input.name];
         })
     }
+
+    setSubmitTextButton(text) {
+        this._submitButton.textContent = text;
+      }
 
     closePopup() {
         super.closePopup();
