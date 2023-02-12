@@ -9,8 +9,8 @@ export default class Card {
         this._cardId = spot.cardId;
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
-        this._handleLikeClick = handleLikeClick;
-        this._handleDeleteClick = handleDeleteClick;        
+        this._handleDeleteClick = handleDeleteClick;
+        this._handleLikeClick = handleLikeClick;                
         this._userId = userId;
     }
 
@@ -44,7 +44,7 @@ export default class Card {
             this._addLike(this._cardId);
           });
           this._deleteButton.addEventListener('click', () => {
-            this._handleDeleteClick(this._cardId);           
+            this._delete(this._cardId);           
           });
           this._imgElement.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
@@ -55,12 +55,17 @@ export default class Card {
       this._likeButton.classList.toggle(this._cardId);
     }
 
-    // _delete = () => {
-    //   this._ownerUserCardId === this._userId;
-    // }
+    _delete = () => { 
+      if (this._ownerUserCardId === this._userId) {
+        this._handleDeleteClick(this._cardId);
+        } else {
+      this._deleteButton.remove();
+      this._deleteButton = null;
+    }
+    }
 
-    _delete = () => {
-      this._cardTemplate.remove();
+    remove = () => {
+      this._cardTemplate.closest('.element').remove();
       this._cardTemplate = null;
     }
 

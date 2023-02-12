@@ -16,6 +16,7 @@ export default class UserInfo {
     setUserInfo(data) {
         this._nameProfile.textContent = data.name;
         this._infoProfile.textContent = data.info;
+        this._dataUser = data;
     }
 
     setUserAvatar(avatar) {
@@ -23,6 +24,6 @@ export default class UserInfo {
       }
 
     getUserId() {
-        return this._userId = this._userData._id;
+        return this._userId = this._dataUser._id;
       }
 }

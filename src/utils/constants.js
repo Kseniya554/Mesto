@@ -60,7 +60,7 @@ export const nameImage = document.querySelector('.popup-image__text')
 export const imgImage = document.querySelector('.popup-image__big');
 
 export const avatarProfile = document.querySelector('.profile__logo');
-export const avatarCover = document.querySelector('.profile__logo-hover');
+export const avatarHover = document.querySelector('.profile__logo-hover');
 
 export const formInput = document.querySelector('.form__input');
 export const errorMessage = {'text':'Вы пропустили это поле'};
