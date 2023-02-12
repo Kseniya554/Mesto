@@ -55,14 +55,16 @@ api.getAllNeededData()
   .catch(err => console.log(err))
 
 
-const sectionCard = new Section({
-  render: (item) => {
-  const template = new Card(item, '.spot', handleCardClick);
-  const card = template.cloneElement();
-  sectionCard.appendItem(card)
-}},
+const sectionCard = new Section({ items: initialCards, 
+  render: renderCard
+//   (item) => {
+//   const template = new Card(item, 'spot', handleCardClick);
+//   const card = template.cloneElement();
+//   sectionCard.appendItem(card)
+// }
+},
 cardsContainer);
-sectionCard.renderItems();
+sectionCard.renderItems(initialCards);
 
 
 const userInfo = new UserInfo({

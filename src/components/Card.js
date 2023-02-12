@@ -1,5 +1,3 @@
-// import { popupImage } from ".";
-
 export default class Card {
     constructor({spot, handleCardClick, handleLikeClick, handleDeleteClick}, templateSelector, userId) {
         this._name = spot.name;
@@ -36,7 +34,7 @@ export default class Card {
     }
 
     isLiked() {
-      return this._likes.some(spot => spot._id === this._userId);
+      return this._likes.some(data => data._id === this._userId);
     }
 
     _setEventListeners() {
