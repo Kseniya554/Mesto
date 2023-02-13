@@ -39,8 +39,12 @@ export default class Api {
           .then(this._getResponseData);
       }
 
-      getAllNeededData() {
-        return Promise.all([this._getUserInfo(), this._getInitialCards()]);
+      getNeededUserInfo() {
+        return Promise.all([this._getUserInfo()]);
+      }
+
+      getNeededInitialCards() {
+        return Promise.all([this._getInitialCards()]);
       }
     
       patchUserInfo(data) {

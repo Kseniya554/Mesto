@@ -32,6 +32,9 @@ popupWithConfirmation.setEventListeners();
 
 const cardsContainer = document.querySelector('#cards');
 
+const popupWithImage = new PopupWithImage('.popup-image', imgImage, nameImage);
+popupWithImage.setEventListeners();
+
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
@@ -41,30 +44,33 @@ const api = new Api({
   }
 });
 
-api.getAllNeededData()
-  .then((result) => {
-    const [dataForUserInfo, dataForInitialCards] = result;
-    // console.log(result);
-
-    userInfo.setUserInfo(dataForUserInfo);
-    userInfo.setUserAvatar(dataForUserInfo.avatar);
-
-    const initialCards = dataForInitialCards;
-    sectionCard.renderItems(initialCards);
-  })
-  .catch(err => console.log(err))
+api.getNeededUserInfo()
+.then((result) => {
+  const [dataForUserInfo] = result;
+  userInfo.setUserInfo(dataForUserInfo);
+  userInfo.setUserAvatar(dataForUserInfo.avatar);
+})
+.catch(err => console.log(err))
 
 
-const sectionCard = new Section({ items: initialCards, 
-  render: renderCard
-//   (item) => {
-//   const template = new Card(item, 'spot', handleCardClick);
-//   const card = template.cloneElement();
-//   sectionCard.appendItem(card)
-// }
-},
-cardsContainer);
-sectionCard.renderItems(initialCards);
+api.getNeededInitialCards()
+.then((result) => {
+  const [dataForInitialCards] = result;
+  const initialCards = dataForInitialCards;
+  sectionCard.renderItems(initialCards);
+})
+.catch(err => console.log(err))
+
+
+
+const sectionCard = new Section(
+  {
+    renderer: (spot) => {
+      sectionCard.appendItem(renderCard(spot));
+    }
+  },
+  cardsContainer
+);
 
 
 const userInfo = new UserInfo({
@@ -73,9 +79,6 @@ const userInfo = new UserInfo({
         avatar: avatarProfile 
 })
 
-
-const popupWithImage = new PopupWithImage('.popup-image', imgImage, nameImage);
-popupWithImage.setEventListeners();
 
 
 const cardPopup = new PopupWithForm({
@@ -109,7 +112,7 @@ const profilePopup = new PopupWithForm({
   handleFormSubmit: (formValues) => {
     const data = {
       name: formValues['name'],
-      info: formValues['info']
+      about: formValues['info']
     }
 
     profilePopup.setSubmitTextButton("Сохранение...");
@@ -148,9 +151,9 @@ const popupAvatar = new PopupWithForm({
 popupAvatar.setEventListeners();
 
 
-function handleCardClick(name, link) {
-  popupWithImage.openPopup(name,link);
-}
+// function handleCardClick(name, link) {
+//   popupWithImage.openPopup(name,link);
+// }
 
 
 function renderCard(spot) {
