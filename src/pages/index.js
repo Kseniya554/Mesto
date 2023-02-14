@@ -5,7 +5,7 @@ import {
   popupOpenButtonElement,
   profileName,
   profileInfo,
-  avatarProfile,
+  profileAvatar,
   avatarHover,
   popupOpenButtonEl,
   profileForm,
@@ -38,7 +38,7 @@ popupWithImage.setEventListeners();
 const userabout = new UserInfo({
   nameProfile: profileName,
   infoProfile: profileInfo,
-  avatar: avatarProfile 
+  avatarProfile: profileAvatar 
 })
 
 
@@ -71,7 +71,7 @@ api.getNeededInitialCards()
 
 const sectionCard = new Section(
   {
-    renderer: (spot) => {
+    render: (spot) => {
       sectionCard.appendItem(renderCard(spot));
     }
   },
@@ -116,7 +116,7 @@ const profilePopup = new PopupWithForm({
     profilePopup.setSubmitTextButton("Сохранение...");
     api.patchUserInfo(data)
       .then(() => {
-        userInfo.setUserInfo(data);
+        userabout.setUserInfo(data);
         profilePopup.closePopup();
       })    
       .catch(err => console.log(err))
@@ -138,7 +138,7 @@ const popupAvatar = new PopupWithForm({
     api.changeAvatar(avatar)
       .then(() => {
         popupAvatar.closePopup();
-        userInfo.setUserAvatar(avatar);
+        userabout.setUserAvatar(avatar);
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -192,9 +192,9 @@ function renderCard(spot) {
     }
   },
   '.spot',
-  userInfo.getUserId());
+  userabout.getUserId());
 
-  const templateElement = template.generateCard();
+  const templateElement = template.cloneElement();
   return templateElement;
 }
 
@@ -204,7 +204,7 @@ avatarHover.addEventListener('click', function(){
 
 popupOpenButtonElement.addEventListener('click', function(){
   profilePopup.openPopup();
-  return profilePopup.setInputValues(userInfo.getUserInfo()); 
+  return profilePopup.setInputValues(userabout.getUserInfo()); 
 });
 
 popupOpenButtonEl.addEventListener('click', function(){
