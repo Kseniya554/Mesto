@@ -35,6 +35,12 @@ const cardsContainer = document.querySelector('#cards');
 const popupWithImage = new PopupWithImage('.popup-image', imgImage, nameImage);
 popupWithImage.setEventListeners();
 
+const userabout = new UserInfo({
+  nameProfile: profileName,
+  infoProfile: profileInfo,
+  avatar: avatarProfile 
+})
+
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
@@ -47,8 +53,8 @@ const api = new Api({
 api.getNeededUserInfo()
 .then((result) => {
   const [dataForUserInfo] = result;
-  userInfo.setUserInfo(dataForUserInfo);
-  userInfo.setUserAvatar(dataForUserInfo.avatar);
+  userabout.setUserInfo(dataForUserInfo);
+  userabout.setUserAvatar(dataForUserInfo.avatar);
 })
 .catch(err => console.log(err))
 
@@ -71,14 +77,6 @@ const sectionCard = new Section(
   },
   cardsContainer
 );
-
-
-const userInfo = new UserInfo({
-        nameProfile: profileName,
-        infoProfile: profileInfo,
-        avatar: avatarProfile 
-})
-
 
 
 const cardPopup = new PopupWithForm({
@@ -123,7 +121,7 @@ const profilePopup = new PopupWithForm({
       })    
       .catch(err => console.log(err))
       .finally(() => {
-        popupWithProfile.setSubmitTextButton("Сохранить");
+        profilePopup.setSubmitTextButton("Сохранить");
       });
     profilePopup.closePopup();
   }  
@@ -149,11 +147,6 @@ const popupAvatar = new PopupWithForm({
   }
 });
 popupAvatar.setEventListeners();
-
-
-// function handleCardClick(name, link) {
-//   popupWithImage.openPopup(name,link);
-// }
 
 
 function renderCard(spot) {
