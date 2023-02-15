@@ -25,6 +25,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 import Api from '../components/Api.js';
+import { setPrototypeOf } from 'core-js/core/object';
 
 // Подтверждение удаления карточки
 const popupWithConfirmation = new PopupWithConfirmation('.popup-delete');
@@ -149,21 +150,21 @@ const popupAvatar = new PopupWithForm({
 popupAvatar.setEventListeners();
 
 
-function renderCard(spot) {
-  const template = new Card({
-    spot: {
-      name: spot.name,
-      link: spot.link,
-      cardId: spot._id,
-      likes: spot.likes,
-      owner: spot.owner
-    },
+const renderCard = (spot) => {
+  const template = new Card(
+    spot,
+      // name: spot.name,
+      // link: spot.link,
+      // cardId: spot._id,
+      // likes: spot.likes,
+      // owner._id: spot.owner._id      
+    // ,
 
-    handleCardClick: (name, link) => {
+   function handleCardClick(name, link) {
       popupWithImage.openPopup(name, link);
     },
 
-    handleDeleteClick: (cardId) => {
+    function handleDeleteClick(cardId) {
       popupWithConfirmation.openPopup();
       popupWithConfirmation.setCallback(() => {
         api.deleteCard(cardId)
@@ -175,7 +176,7 @@ function renderCard(spot) {
       });
     },
 
-    handleLikeClick: (cardId) => {
+    function handleLikeClick(cardId) {
       if(template.isLiked()) {
         api.deleteLike(cardId)
           .then((response) => {
@@ -189,8 +190,7 @@ function renderCard(spot) {
           })
           .catch(err => console.log(err))
       }
-    }
-  },
+    }, 
   '.spot',
   userabout.getUserId());
 

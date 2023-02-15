@@ -1,5 +1,5 @@
 export default class Card {
-    constructor({spot, handleCardClick, handleLikeClick, handleDeleteClick}, templateSelector, userId) {
+    constructor(spot, handleCardClick, handleLikeClick, handleDeleteClick, templateSelector, userId) {
         this._name = spot.name;
         this._link = spot.link;
         this._likes = spot.likes;
@@ -42,7 +42,8 @@ export default class Card {
             this._addLike(this._cardId);
           });
           this._deleteButton.addEventListener('click', () => {
-            this._delete(this._cardId);           
+            if (this._ownerUserCardId === this._userId){
+            this._delete(this._cardId);}
           });
           this._imgElement.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);

@@ -48,7 +48,7 @@ export default class Api {
       }
     
       patchUserInfo(data) {
-        return fetch(`${this._url}users/me`, {
+        return fetch(`${this._url}/users/me`, {
           method: 'PATCH',
           headers: this._headers,
           body: JSON.stringify({
@@ -60,7 +60,7 @@ export default class Api {
       }
     
       NewCard(data) {
-        return fetch(`${this._url}cards`, {
+        return fetch(`${this._url}/cards`, {
           method: 'POST',
           headers: this._headers,
           body: JSON.stringify({
@@ -72,7 +72,7 @@ export default class Api {
       }
     
       deleteCard(cardId) {
-        return fetch(`${this._url}cards/${cardId}`, {
+        return fetch(`${this._url}/cards/${cardId}`, {
           method: 'DELETE',
           headers: this._headers
         })
@@ -80,7 +80,7 @@ export default class Api {
       }
     
       putLike(cardId) {
-        return fetch(`${this._url}cards/${cardId}/likes`, {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
           method: 'PUT',
           headers: this._headers
         })
@@ -88,7 +88,7 @@ export default class Api {
       }
     
       deleteLike(cardId) {
-        return fetch(`${this._url}cards/${cardId}/likes`, {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
           method: 'DELETE',
           headers: this._headers
         })
@@ -96,7 +96,7 @@ export default class Api {
       }
     
       changeAvatar(avatar) {
-        return fetch(`${this._url}users/me/avatar`, {
+        return fetch(`${this._url}/users/me/avatar`, {
           method: 'PATCH',
           headers: this._headers,
           body: JSON.stringify({
