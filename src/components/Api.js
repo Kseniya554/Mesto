@@ -59,13 +59,13 @@ export default class Api {
         .then(this._getResponseData);
       }
     
-      NewCard(data) {
+      postNewCard(formValues) {
         return fetch(`${this._url}/cards`, {
           method: 'POST',
           headers: this._headers,
           body: JSON.stringify({
-            name: data.name,
-            link: data.link
+            name: formValues.place_input,
+            link: formValues.url_input
           })
         })
         .then(this._getResponseData);

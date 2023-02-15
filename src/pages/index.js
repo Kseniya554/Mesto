@@ -82,16 +82,15 @@ const sectionCard = new Section(
 const cardPopup = new PopupWithForm({
   popupSelector: '.popup-plus',
   handleFormSubmit: (formValues) => {
-    const spot = {
-          name: formValues['place-input'],
-          link: formValues['url-input']
-        };
-    sectionCard.addItem(renderCard(spot));
+    // const spot = {
+    //       name: formValues['place-input'],
+    //       link: formValues['url-input']
+    //     };    
  
     cardPopup.setSubmitTextButton("Сохранение...");
-    api.NewCard(spot)
+    api.postNewCard(formValues)
       .then((response) => {
-        addItem(response);
+        sectionCard.addItem(renderCard(response));
         cardPopup.closePopup();
       })
       .catch(err => console.log(err))
@@ -149,18 +148,20 @@ const popupAvatar = new PopupWithForm({
 popupAvatar.setEventListeners();
 
 
-function renderCard(spot) {
+function renderCard(spot) { 
+  // console.log(spot.owner._id)
   const template = new Card({
-    spot: {
-      name: spot.name,
-      link: spot.link,
-      cardId: spot._id,
-      likes: spot.likes,
-      owner: spot.owner
-    },
+    spot: spot,
+    //  {
+    //   name: spot.name,
+    //   link: spot.link,
+    //   cardId: spot._id,
+    //   likes: spot.likes,
+    //   owner: spot.owner
+    // },
 
     handleCardClick: (name, link) => {
-      popupWithImage.openPopup(name, link);
+      popupWithImage.openPopup(name, link);      
     },
 
     handleDeleteClick: (cardId) => {
