@@ -172,13 +172,13 @@ function renderCard(spot) {
       if(template.isLiked()) {
         api.deleteLike(cardId)
           .then((response) => {
-            template.setLikesView(response.likes);
+            template.setLikes(response.likes);
           })
           .catch(err => console.log(err))
       } else {
         api.putLike(cardId)
           .then((response) => {
-            template.setLikesView(response.likes);
+            template.setLikes(response.likes);
           })
           .catch(err => console.log(err))
       }
