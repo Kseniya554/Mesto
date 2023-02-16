@@ -20,7 +20,7 @@ export default class PopupWithConfirmation extends Popup{
         this._submitButton.focus();
     }
 
-    closePopup(callback) {
+    closePopupCallBack(callback) {
         this._handleFormSubmit = callback;        
     }
 }

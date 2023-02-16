@@ -4,7 +4,7 @@ export default class Card {
         this._link = spot.link;
         this._likes = spot.likes;
         this._ownerUserCardId = spot.owner._id;
-        this._cardId = spot.cardId;
+        this._cardId = spot._id;
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
         this._handleDeleteClick = handleDeleteClick;

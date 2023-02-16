@@ -152,13 +152,6 @@ function renderCard(spot) {
   // console.log(spot.owner._id)
   const template = new Card({
     spot: spot,
-    //  {
-    //   name: spot.name,
-    //   link: spot.link,
-    //   cardId: spot._id,
-    //   likes: spot.likes,
-    //   owner: spot.owner
-    // },
 
     handleCardClick: (name, link) => {
       popupWithImage.openPopup(name, link);      
@@ -166,7 +159,7 @@ function renderCard(spot) {
 
     handleDeleteClick: (cardId) => {
       popupWithConfirmation.openPopup();
-      popupWithConfirmation.setCallback(() => {
+      popupWithConfirmation.closePopupCallBack(() => {
         api.deleteCard(cardId)
           .then(() => {
             popupWithConfirmation.closePopup();
@@ -175,7 +168,6 @@ function renderCard(spot) {
           .catch(err => console.log(err))
       });
     },
-
     handleLikeClick: (cardId) => {
       if(template.isLiked()) {
         api.deleteLike(cardId)
