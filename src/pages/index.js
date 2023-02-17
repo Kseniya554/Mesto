@@ -10,6 +10,7 @@ import {
   popupOpenButtonEl,
   profileForm,
   cardForm,
+  avatarForm,
   nameImage,
   imgImage,
   FORM_SETTINGS,
@@ -50,23 +51,15 @@ const api = new Api({
   }
 });
 
-api.getNeededUserInfo()
+api.getNeededAll()
 .then((result) => {
-  const [dataForUserInfo] = result;
+  const [dataForUserInfo, dataForInitialCards] = result;
   userabout.setUserInfo(dataForUserInfo);
   userabout.setUserAvatar(dataForUserInfo.avatar);
-})
-.catch(err => console.log(err))
-
-
-api.getNeededInitialCards()
-.then((result) => {
-  const [dataForInitialCards] = result;
   const initialCards = dataForInitialCards;
   sectionCard.renderItems(initialCards);
 })
 .catch(err => console.log(err))
-
 
 
 const sectionCard = new Section(
@@ -97,7 +90,7 @@ const cardPopup = new PopupWithForm({
       .finally(() => {
         cardPopup.setSubmitTextButton("Создать");
       });
-      cardForm.reset();
+      // cardForm.reset();
   }
 
 })
@@ -122,7 +115,7 @@ const profilePopup = new PopupWithForm({
       .finally(() => {
         profilePopup.setSubmitTextButton("Сохранить");
       });
-    profilePopup.closePopup();
+    // profilePopup.closePopup();
   }  
 })
 profilePopup.setEventListeners();
@@ -208,3 +201,5 @@ const profileFormValidator = new FormValidator(FORM_SETTINGS, profileForm);
 profileFormValidator.enableValidation();
 const cardFormValidator = new FormValidator(FORM_SETTINGS, cardForm);
 cardFormValidator.enableValidation();
+const avatarFormValidator = new FormValidator(FORM_SETTINGS, avatarForm);
+avatarFormValidator.enableValidation();

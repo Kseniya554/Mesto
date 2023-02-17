@@ -19,11 +19,7 @@ export default class Api {
         authorization: '2e68d41e-015c-4b85-8029-ac9ad107e6a1'
     }
   })
- .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    });
+  .then(this._getResponseData);
 // return fetch(`${this._url}cards`, {
 //   method: 'GET',
 //   headers: this._headers
@@ -39,13 +35,13 @@ export default class Api {
           .then(this._getResponseData);
       }
 
-      getNeededUserInfo() {
-        return Promise.all([this._getUserInfo()]);
+      getNeededAll() {
+        return Promise.all([this._getUserInfo(), this._getInitialCards()]);
       }
 
-      getNeededInitialCards() {
-        return Promise.all([this._getInitialCards()]);
-      }
+      // getNeededInitialCards() {
+      //   return Promise.all([this._getInitialCards()]);
+      // }
     
       patchUserInfo(data) {
         return fetch(`${this._url}/users/me`, {

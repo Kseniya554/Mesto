@@ -22,14 +22,12 @@ export default class Popup {
         this._popup.classList.add('popup__is-opened');
         document.addEventListener('keydown', this._handleEscClose);
         this._popup.addEventListener('mousedown', this._closePopupByClickOnOverlay);
-        document.addEventListener('click', this._closePopupByButton);
     }
       
     closePopup() {
         this._popup.classList.remove('popup__is-opened');
         document.removeEventListener('keydown', this._handleEscClose);
-        this._popup.removeEventListener('mousedown', this._closePopupByClickOnOverlay);
-        document.removeEventListener('click', this._closePopupByButton);
+        this._popup.removeEventListener('mousedown', this._closePopupByClickOnOverlay);       
     }
 
     setEventListeners(evt) {     

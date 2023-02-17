@@ -52,10 +52,6 @@ export default class Card {
           this._imgElement.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
           });
-    }  
-
-    _handleLikeClick = () => {
-      this._likeButton.classList.toggle(this._cardId);
     }
 
     _delete = () => { 

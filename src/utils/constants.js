@@ -53,6 +53,7 @@ export const infoInputCard = document.querySelector('.popup-plus__info');
 
 export const profileForm = document.forms["profile-form"];
 export const cardForm = document.forms["card-form"];
+export const avatarForm = document.forms["avatar-form"];
 
 // export const popupImage = document.querySelector('.popup-image');
 export const imageElement = document.querySelector('.popup-image__container');
